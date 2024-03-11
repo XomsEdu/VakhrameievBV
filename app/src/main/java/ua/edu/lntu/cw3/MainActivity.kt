@@ -41,3 +41,48 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@Composable
+fun CenteredSection() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = CenterVertically,
+        horizontalAlignment = CenterHorizontally
+    ) {
+        // Logo image
+        Image(
+            painter = painterResource(id = R.drawable.your_logo), // Replace with your actual logo resource
+            contentDescription = null,
+            modifier = Modifier
+                .size(100.dp) // Adjust the size as needed
+                .clip(MaterialTheme.shapes.medium)
+        )
+
+        // Spacer for some separation
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Name
+        Text(
+            text = "Your Name",
+            style = MaterialTheme.typography.h6
+        )
+
+        // Spacer for some separation
+        Spacer(modifier = Modifier.height(8.dp))
+
+        // Title
+        Text(
+            text = "Your Title",
+            style = MaterialTheme.typography.subtitle1
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun CenteredSectionPreview() {
+    VakhrameievBVTheme {
+        CenteredSection()
+    }
+}
